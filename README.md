@@ -1,6 +1,10 @@
 # ERC404 Gambling Platform - Pachinko Game
+![ICON](logo.ico)
 
 Un jeu de Pachinko basé sur la blockchain ERC404 avec une interface utilisateur moderne et des fonctionnalités de jeu avancées.
+
+# Démo
+![GIF](POC.gif)
 
 ## Prérequis
 
