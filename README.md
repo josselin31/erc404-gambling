@@ -1,6 +1,6 @@
 
 # 🎰 ERC404 Gambling Platform – Pachinko Game  
-<div align="center">
+
 ![Logo](logo.ico)
 
 [![Languages](https://img.shields.io/github/languages/top/josselin31/erc404-gambling?style=flat-square)](https://github.com/josselin31/erc404-gambling)
