@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pachinko Game</title>
+    <style>
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #generateBallButton, #pausePlayButton {
+            display: block;
+            margin: 20px auto;
+        }
+        #counterContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #wallet {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #chartContainer {
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="controls">
+        <label for="ballCountRange">Number of Balls: <span id="ballCountDisplay">1</span></label>
+        <input type="range" id="ballCountRange" min="0" max="3" step="1" value="0">
+        <button id="generateBallButton">Generate Ball(s)</button>
+        <button id="pausePlayButton">Play</button>
+        <label for="autoStopCheckbox">Auto-Stop:</label>
+        <input type="checkbox" id="autoStopCheckbox">
+    </div>
+    <div id="wallet">Wallet: <span id="walletAmount">10000</span> tokens</div>
+    <div id="counterContainer"></div>
+    <div id="chartContainer">
+        <canvas id="walletChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

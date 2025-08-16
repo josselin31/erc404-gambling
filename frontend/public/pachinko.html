@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pachinko Game - GAMB Platform</title>
+    <link rel="stylesheet" href="../src/styles/pachinko.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="pachinko-container">
+        <header class="game-header">
+            <div class="back-button">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Games</a>
+            </div>
+            <div class="wallet-info">
+                <i class="fas fa-wallet"></i>
+                <span>Balance: <span id="tokenBalance">0.00</span> GAMB</span>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas"></canvas>
+                <div class="game-overlay">
+                    <div class="multiplier-display">
+                        <i class="fas fa-bolt"></i>
+                        <span>Current Multiplier: <span id="currentMultiplier">1.00x</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <div class="bet-controls">
+                    <div class="bet-amount">
+                        <label for="betAmount"><i class="fas fa-coins"></i> Bet Amount (GAMB)</label>
+                        <div class="bet-input-container">
+                            <input type="number" id="betAmount" min="0.01" max="100" step="0.01" value="1.00">
+                            <div class="bet-controls">
+                                <button class="bet-control" data-action="half"><i class="fas fa-divide"></i></button>
+                                <button class="bet-control" data-action="double"><i class="fas fa-times"></i></button>
+                                <button class="bet-control" data-action="max"><i class="fas fa-arrow-up"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ball-controls">
+                    <div class="ball-count">
+                        <label for="ballCountRange"><i class="fas fa-circle"></i> Number of Balls: <span id="ballCountDisplay">1</span></label>
+                        <input type="range" id="ballCountRange" min="1" max="5" step="1" value="1">
+                    </div>
+                    <div class="control-buttons">
+                        <button id="generateBallButton" class="primary-button">
+                            <i class="fas fa-play"></i> Generate Ball(s)
+                        </button>
+                        <button id="pausePlayButton" class="secondary-button">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                    </div>
+                    <div class="auto-stop">
+                        <label for="autoStopCheckbox">
+                            <i class="fas fa-stop-circle"></i> Auto-Stop
+                        </label>
+                        <input type="checkbox" id="autoStopCheckbox">
+                    </div>
+                </div>
+
+                <div class="payout-info">
+                    <h3><i class="fas fa-trophy"></i> Payout Multipliers</h3>
+                    <div class="multiplier-grid">
+                        <div class="multiplier-item">
+                            <span class="multiplier-value">2x</span>
+                            <span class="multiplier-path">Path 1</span>
+                        </div>
+                        <div class="multiplier-item">
+                            <span class="multiplier-value">3x</span>
+                            <span class="multiplier-path">Path 2</span>
+                        </div>
+                        <div class="multiplier-item">
+                            <span class="multiplier-value">5x</span>
+                            <span class="multiplier-path">Path 3</span>
+                        </div>
+                        <div class="multiplier-item">
+                            <span class="multiplier-value">7x</span>
+                            <span class="multiplier-path">Path 4</span>
+                        </div>
+                        <div class="multiplier-item">
+                            <span class="multiplier-value">10x</span>
+                            <span class="multiplier-path">Path 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <h2><i class="fas fa-star"></i> Game Result</h2>
+                <div class="result-details">
+                    <p><i class="fas fa-bolt"></i> Multiplier: <span id="resultMultiplier">0x</span></p>
+                    <p><i class="fas fa-coins"></i> Winnings: <span id="resultWinnings">0 GAMB</span></p>
+                </div>
+                <button id="closeModal" class="close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../src/js/pachinko.js"></script>
+</body>
+</html> 

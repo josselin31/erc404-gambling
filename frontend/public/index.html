@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMB Platform</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/pachinko.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="GAMB Logo" class="logo-img">
+                <h1>GAMB Platform</h1>
+            </div>
+            <div class="wallet-info">
+                <span class="token-balance">Balance: <span id="tokenBalance">0.00</span> GAMB</span>
+                <button id="connectWallet" class="connect-button">Connect Wallet</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Game Selection -->
+            <section class="game-selection" id="gameSelection">
+                <h2>Choose Your Game</h2>
+                <div class="game-grid">
+                    <div class="game-card" data-game="coinflip">
+                        <div class="game-icon">🎲</div>
+                        <h3>Coin Flip</h3>
+                        <p>50/50 chance, 1.98x payout</p>
+                    </div>
+                    <div class="game-card" data-game="diceroll">
+                        <div class="game-icon">🎲</div>
+                        <h3>Dice Roll</h3>
+                        <p>1/6 chance, 5.94x payout</p>
+                    </div>
+                    <div class="game-card" data-game="numberguess">
+                        <div class="game-icon">🔢</div>
+                        <h3>Number Guess</h3>
+                        <p>1/100 chance, 99x payout</p>
+                    </div>
+                    <div class="game-card" data-game="pachinko">
+                        <div class="game-icon">🎯</div>
+                        <h3>Pachinko</h3>
+                        <p>Multiple paths, up to 10x payout</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Interfaces -->
+            <section class="game-interface hidden" id="gameInterface">
+                <button class="back-button" id="backToGames">← Back to Games</button>
+                <div class="game-container">
+                    <div class="game-header">
+                        <h3 id="currentGame">Select a Game</h3>
+                        <div class="game-stats">
+                            <span>House Edge: 2.5%</span>
+                            <span>Min Bet: 0.01 GAMB</span>
+                            <span>Max Bet: 100 GAMB</span>
+                        </div>
+                    </div>
+
+                    <!-- Standard Games Interface -->
+                    <div class="standard-games" id="standardGames">
+                        <div class="betting-interface">
+                            <div class="bet-amount">
+                                <label for="betAmount">Bet Amount (GAMB)</label>
+                                <div class="bet-input-container">
+                                    <input type="number" id="betAmount" min="0.01" max="100" step="0.01" value="1.00">
+                                    <div class="bet-controls">
+                                        <button class="bet-control" data-action="half">½</button>
+                                        <button class="bet-control" data-action="double">2×</button>
+                                        <button class="bet-control" data-action="max">Max</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="game-controls">
+                                <div id="coinflipControls" class="game-specific-controls hidden">
+                                    <button class="choice-btn" data-choice="0">Heads</button>
+                                    <button class="choice-btn" data-choice="1">Tails</button>
+                                </div>
+                                <div id="dicerollControls" class="game-specific-controls hidden">
+                                    <div class="dice-grid">
+                                        <button class="dice-btn" data-choice="1">1</button>
+                                        <button class="dice-btn" data-choice="2">2</button>
+                                        <button class="dice-btn" data-choice="3">3</button>
+                                        <button class="dice-btn" data-choice="4">4</button>
+                                        <button class="dice-btn" data-choice="5">5</button>
+                                        <button class="dice-btn" data-choice="6">6</button>
+                                    </div>
+                                </div>
+                                <div id="numberguessControls" class="game-specific-controls hidden">
+                                    <input type="number" id="numberGuess" min="0" max="99" placeholder="Enter number (0-99)">
+                                </div>
+                            </div>
+
+                            <button id="placeBet" class="place-bet-btn" disabled>Place Bet</button>
+                        </div>
+                    </div>
+
+                    <!-- Pachinko Interface -->
+                    <div class="pachinko-game hidden" id="pachinkoGame">
+                        <div class="game-canvas-container">
+                            <canvas id="gameCanvas"></canvas>
+                        </div>
+
+                        <div class="controls-container">
+                            <div class="ball-controls">
+                                <div class="ball-count">
+                                    <label for="ballCountRange">Number of Balls: <span id="ballCountDisplay">1</span></label>
+                                    <input type="range" id="ballCountRange" min="0" max="3" value="0">
+                                </div>
+                                <button id="generateBallButton" class="primary-button">Generate Ball(s)</button>
+                                <button id="pausePlayButton" class="secondary-button">Play</button>
+                                <div class="auto-stop">
+                                    <label for="autoStopCheckbox">Auto-Stop at Red Line:</label>
+                                    <input type="checkbox" id="autoStopCheckbox">
+                                </div>
+                            </div>
+
+                            <div class="counter-container" id="counterContainer">
+                                <!-- Bin counters will be populated here -->
+                            </div>
+
+                            <div class="wallet-chart-container">
+                                <canvas id="walletChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Bets -->
+            <section class="recent-bets">
+                <h3>Recent Bets</h3>
+                <div class="bets-table-container">
+                    <table class="bets-table">
+                        <thead>
+                            <tr>
+                                <th>Game</th>
+                                <th>Amount</th>
+                                <th>Choice</th>
+                                <th>Result</th>
+                                <th>Payout</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentBetsBody">
+                            <!-- Bet history will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Powered by Arbitrum & Chainlink VRF</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2 id="resultTitle">Result</h2>
+            <div id="resultAnimation" class="result-animation"></div>
+            <p id="resultMessage"></p>
+            <button id="closeModal" class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
