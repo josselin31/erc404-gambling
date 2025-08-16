@@ -3,7 +3,7 @@
 
 ![Logo](logo.ico)
 
-[![Languages](https://img.shields.io/github/languages/top/josselin31/erc404-gambling?style=flat-square)](https://github.com/josselin31/erc404-gambling)
+
 [![JavaScript](https://img.shields.io/badge/JavaScript-47.5%25-yellow?style=flat-square&logo=javascript)](https://github.com/josselin31/erc404-gambling)
 [![CSS](https://img.shields.io/badge/CSS-24.6%25-blue?style=flat-square&logo=css3)](https://github.com/josselin31/erc404-gambling)
 [![HTML](https://img.shields.io/badge/HTML-16.4%25-orange?style=flat-square&logo=html5)](https://github.com/josselin31/erc404-gambling)
