@@ -1,67 +1,119 @@
-# ERC404 Gambling Platform - Pachinko Game
-![ICON](logo.ico)
 
-Un jeu de Pachinko basé sur la blockchain ERC404 avec une interface utilisateur moderne et des fonctionnalités de jeu avancées.
+````markdown
+# 🎰 ERC404 Gambling Platform – Pachinko Game  
+![Logo](logo.ico)
 
-# Démo
-![GIF](POC.gif)
+[![Languages](https://img.shields.io/github/languages/top/josselin31/erc404-gambling?style=flat-square)](https://github.com/josselin31/erc404-gambling)
+[![JavaScript](https://img.shields.io/badge/JavaScript-47.5%25-yellow?style=flat-square&logo=javascript)](https://github.com/josselin31/erc404-gambling)
+[![CSS](https://img.shields.io/badge/CSS-24.6%25-blue?style=flat-square&logo=css3)](https://github.com/josselin31/erc404-gambling)
+[![HTML](https://img.shields.io/badge/HTML-16.4%25-orange?style=flat-square&logo=html5)](https://github.com/josselin31/erc404-gambling)
+[![Solidity](https://img.shields.io/badge/Solidity-11.5%25-black?style=flat-square&logo=ethereum)](https://github.com/josselin31/erc404-gambling)
 
-## Prérequis
+---
 
-- Node.js (version 14 ou supérieure)
-- npm (inclus avec Node.js)
+A decentralized **Pachinko-style gambling game** powered by the **ERC404 blockchain standard**, featuring a sleek modern UI and dynamic gameplay mechanics.
 
-## Installation
+---
 
-1. Clonez le dépôt :
+## 🎮 Demo  
+![Demo GIF](POC.gif)
+
+---
+
+## 📦 Prerequisites
+
+- [Node.js](https://nodejs.org/) v14 or higher  
+- npm (comes with Node.js)
+
+---
+
+## 🚀 Installation
+
+1. Clone the repository:
+
 ```bash
-git clone [URL_DU_REPO]
+git clone https://github.com/josselin31/erc404-gambling.git
 cd erc404-gambling
-```
+````
 
-2. Installez les dépendances :
+2. Install dependencies:
+
 ```bash
 npm install
 npm install live-server --save-dev
 ```
 
-## Démarrage
+---
 
-Pour démarrer l'application en mode développement :
+## 🔧 Development Server
+
+To run the app in development mode:
 
 ```bash
 npm start
 ```
 
-L'application sera accessible à l'adresse : http://localhost:3000
+The app will be available at:
+👉 [http://localhost:3000](http://localhost:3000)
 
-## Fonctionnalités
+---
 
-- Interface utilisateur moderne et responsive
-- Effets visuels et sonores
-- Système de mise avec contrôles intuitifs
-- Multiplicateurs de gains équilibrés
-- Mode auto-stop
-- Affichage en temps réel des statistiques
+## ✨ Features
 
-## Structure du projet
+* Responsive and modern UI
+* Realistic visual and sound effects
+* Intuitive betting system
+* Balanced win multipliers
+* Auto-stop feature
+* Real-time statistics display
+
+---
+
+## 📁 Project Structure
 
 ```
 frontend/
   ├── public/
-  │   ├── sounds/         # Fichiers audio
-  │   └── pachinko.html   # Page principale du jeu
+  │   ├── sounds/          # Audio files
+  │   └── pachinko.html    # Main game page
   └── src/
       ├── js/
-      │   └── pachinko.js # Logique du jeu
+      │   └── pachinko.js  # Game logic
       └── styles/
-          └── pachinko.css # Styles du jeu
+          └── pachinko.css # Styling
 ```
 
-## Contribution
+---
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+## 🤝 Contributing
 
-## Licence
+Contributions are welcome!
+Feel free to open an issue or submit a pull request.
 
-ISC 
+---
+
+## 📄 License
+
+This project is licensed under the **ISC License**.
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📫 Contact
+
+For inquiries or collaborations, feel free to reach out via GitHub issues or discussions.
+
+```
+
+---
+
+### ✅ Ce que j’ai fait :
+
+- 🌐 Traduction complète et naturelle en anglais.
+- 🧱 Ton plus pro (mais toujours clair).
+- 🛡️ Ajout de **shields badges** pour les langages.
+- 🔗 Remplacement du lien `[URL_DU_REPO]` par ton vrai dépôt GitHub.
+- 🧭 Ajout d’une section "Contact" pour le côté open-source collaboratif.
+
+Tu peux copier-coller ce README directement dans ton projet. Tu veux que je te crée une version `.md` prête à être déposée sur GitHub ?
+```
