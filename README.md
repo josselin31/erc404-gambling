@@ -1,5 +1,4 @@
 
-````markdown
 # 🎰 ERC404 Gambling Platform – Pachinko Game  
 ![Logo](logo.ico)
 
@@ -34,7 +33,7 @@ A decentralized **Pachinko-style gambling game** powered by the **ERC404 blockch
 ```bash
 git clone https://github.com/josselin31/erc404-gambling.git
 cd erc404-gambling
-````
+
 
 2. Install dependencies:
 
